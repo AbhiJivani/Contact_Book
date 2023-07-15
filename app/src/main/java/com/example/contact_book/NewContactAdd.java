@@ -12,9 +12,7 @@ import java.util.ArrayList;
 
 public class NewContactAdd extends AppCompatActivity {
     ActivityNewContactAddBinding binding;
-    ArrayList<String> nameList=new ArrayList();
-    ArrayList<String> numberList=new ArrayList();
-    ArrayList<String> emailList=new ArrayList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

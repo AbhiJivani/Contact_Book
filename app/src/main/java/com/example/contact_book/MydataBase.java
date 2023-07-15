@@ -1,6 +1,7 @@
 package com.example.contact_book;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -24,8 +25,15 @@ public class MydataBase extends SQLiteOpenHelper {
     }
 
     public void add(String name, String email, String number) {
-        String query="insert into ContactTable(NAME,NUMBER,EMAIL) value('"+name+"','"+number+"','"+email+"')";
+        String query="insert into ContactTable(NAME,NUMBER,EMAIL) values('"+name+"','"+number+"','"+email+"')";
         SQLiteDatabase db=getWritableDatabase();
         db.execSQL(query);
+    }
+
+    public Cursor showdata() {
+        String query="select * from ContactTable";
+        SQLiteDatabase db=getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        return cursor;
     }
 }
