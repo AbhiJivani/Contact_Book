@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.activity.contextaware.ContextAware;
 import androidx.annotation.Nullable;
 
 public class MydataBase extends SQLiteOpenHelper {
@@ -35,5 +34,17 @@ public class MydataBase extends SQLiteOpenHelper {
         SQLiteDatabase db=getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
         return cursor;
+    }
+
+    public void updateData(int id, String number, String email, String name) {
+        String query="update ContactTable set NAME='"+name+"',NUMBER='"+number+"',EMAIL='"+email+"'";
+        SQLiteDatabase db=getWritableDatabase();
+        db.execSQL(query);
+    }
+
+    public void deleteData(int id) {
+        String query="delete from ContactTable where ID="+id+"";
+        SQLiteDatabase db=getWritableDatabase();
+        db.execSQL(query);
     }
 }

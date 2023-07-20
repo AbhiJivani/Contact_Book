@@ -7,7 +7,7 @@ public class ContactModel
     private String email;
     private String number;
 
-    public ContactModel(int id, String name, String email, String number) {
+    public ContactModel(int id, String name, String number ,String email) {
         this.id = id;
         this.name = name;
         this.email = email;
